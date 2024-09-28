@@ -5,37 +5,43 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
-    private static final String URL = "jdbc:mysql://localhost:3306/planetikcet"; // Ganti sesuai dengan nama database Anda
-    private static final String USER = "root"; // Ganti jika username Anda berbeda
-    private static final String PASSWORD = ""; // Ganti jika ada password
+    private static final String URL = "jdbc:mysql://localhost:3306/planeticket"; // Change to your database name
+    private static final String USER = "root"; // Change if your username is different
+    private static final String PASSWORD = ""; // Change if you have a password
 
-    // Metode untuk mendapatkan koneksi
+    // Method to get the connection
     public static Connection getConnection() {
         Connection connection = null;
         try {
-            // Mencoba untuk mendapatkan koneksi ke database
+            // Attempting to get a connection to the database
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Koneksi ke database berhasil!");
+            System.out.println("Connection to database successful!");
         } catch (SQLException e) {
-            System.out.println("Koneksi gagal: " + e.getMessage());
+            System.err.println("Connection failed: " + e.getMessage());
         }
         return connection;
     }
 
-    // Metode utama untuk menguji koneksi
+    // Main method to test the connection
     public static void main(String[] args) {
         Connection conn = Database.getConnection();
         
-        // Lakukan operasi yang diinginkan di sini
+        // Check if the connection is successful before proceeding
+        if (conn != null) {
+            try {
+                // Perform desired operations here
 
-        // Menutup koneksi
-        try {
-            if (conn != null) {
-                conn.close();
-                System.out.println("Koneksi ditutup.");
+            } finally {
+                // Always close the connection in the finally block
+                try {
+                    conn.close();
+                    System.out.println("Connection closed.");
+                } catch (SQLException e) {
+                    System.err.println("Failed to close connection: " + e.getMessage());
+                }
             }
-        } catch (SQLException e) {
-            System.out.println("Gagal menutup koneksi: " + e.getMessage());
+        } else {
+            System.out.println("Connection was not established, skipping operations.");
         }
     }
 }

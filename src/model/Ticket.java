@@ -8,16 +8,16 @@ public class Ticket {
     private String arrivalCity;
     private Date date; // Tanggal penerbangan
     private int availableSeats;
-    private String planeImage; // URL atau path ke gambar pesawat
+    private String ticketStatus; // Status tiket
 
     // Constructor
-    public Ticket(String flightCode, String departureCity, String arrivalCity, Date date, int availableSeats, String planeImage) {
+    public Ticket(String flightCode, String departureCity, String arrivalCity, Date date, int availableSeats, String ticketStatus) {
         this.flightCode = flightCode;
         this.departureCity = departureCity;
         this.arrivalCity = arrivalCity;
         this.date = date;
         this.availableSeats = availableSeats;
-        this.planeImage = planeImage;
+        this.ticketStatus = ticketStatus; // Status tiket
     }
 
     // Getter dan Setter
@@ -61,12 +61,12 @@ public class Ticket {
         this.availableSeats = availableSeats;
     }
 
-    public String getPlaneImage() {
-        return planeImage;
+    public String getTicketStatus() {
+        return ticketStatus;
     }
 
-    public void setPlaneImage(String planeImage) {
-        this.planeImage = planeImage;
+    public void setTicketStatus(String ticketStatus) {
+        this.ticketStatus = ticketStatus;
     }
 
     // Metode untuk menampilkan informasi tiket
@@ -78,7 +78,7 @@ public class Ticket {
                 ", arrivalCity='" + arrivalCity + '\'' +
                 ", date=" + date +
                 ", availableSeats=" + availableSeats +
-                ", planeImage='" + planeImage + '\'' +
+                ", ticketStatus='" + ticketStatus + '\'' +
                 '}';
     }
 }

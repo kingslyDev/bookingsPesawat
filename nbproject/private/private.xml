@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/Projek/TicketPesawat/src/view/Admin/AdminMainPage.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/view/Shared/LoginForm.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/controller/FlightController.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/model/Flight.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/database/Database.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/view/Admin/AdminAddTicketPage.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/view/Shared/RegisterForm.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/view/User/UserMainPage.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/controller/LoginController.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/controller/TicketController.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/model/Ticket.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/model/User.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/TicketPesawat/Main.java</file>
+            <file>file:/D:/Projek/TicketPesawat/src/model/Booking.java</file>
+        </group>
+    </open-files>
+</project-private>

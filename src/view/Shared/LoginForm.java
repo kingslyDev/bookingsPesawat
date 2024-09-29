@@ -4,14 +4,9 @@
  */
 package view.Shared;
 
-import database.Database;
-import view.Admin.AdminMainPage;
-import view.User.UserMainPage;
-import javax.swing.JOptionPane;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import controller.LoginController;
+
 
 
 
@@ -138,57 +133,12 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String username = usernameField.getText();
-        String password = new String(passwordField.getPassword());
+    String username = usernameField.getText();
+    String password = new String(passwordField.getPassword());
 
-        // Mendapatkan koneksi ke database
-        Connection conn = Database.getConnection();
-        
-        if (conn != null) {
-            try {
-                // SQL untuk memeriksa pengguna
-                String sql = "SELECT role FROM users WHERE username = ? AND password = ?";
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, username);
-                pstmt.setString(2, password);
-
-                // Menjalankan query
-                ResultSet rs = pstmt.executeQuery();
-                
-                // Memeriksa apakah ada hasil
-                if (rs.next()) {
-                    String role = rs.getString("role");
-
-                    // Arahkan ke halaman yang sesuai berdasarkan role
-                    if ("customer".equals(role)) {
-                        // Menutup halaman login
-                        this.dispose();
-                        // Menampilkan halaman utama customer
-                        UserMainPage userMainPage = new UserMainPage();
-                        userMainPage.setVisible(true);
-                    } else if ("admin".equals(role)) {
-                        // Menutup halaman login
-                        this.dispose();
-                        // Menampilkan halaman utama admin
-                        AdminMainPage adminMainPage = new AdminMainPage();
-                        adminMainPage.setVisible(true);
-                    }
-                } else {
-                    // Username atau password salah
-                    JOptionPane.showMessageDialog(this, "Username atau Password salah!", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (SQLException e) {
-                System.err.println("Kesalahan SQL: " + e.getMessage());
-            } finally {
-                try {
-                    conn.close(); // Pastikan koneksi ditutup
-                } catch (SQLException e) {
-                    System.err.println("Gagal menutup koneksi: " + e.getMessage());
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Gagal terhubung ke database!", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    // Menggunakan LoginController untuk melakukan login
+    LoginController loginController = new LoginController();
+    loginController.login(username, password, this);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
